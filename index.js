@@ -123,7 +123,7 @@
         MAX_OBSTACLE_DUPLICATION: 2,
         MAX_SPEED: 16,
         MIN_JUMP_HEIGHT: 35,
-        MOBILE_SPEED_COEFFICIENT: 1.2,
+        MOBILE_SPEED_COEFFICIENT: 1.8,
         RESOURCE_TEMPLATE_ID: 'audio-resources',
         SPEED: 6,
         SPEED_DROP_COEFFICIENT: 3,
@@ -376,6 +376,8 @@
             this.outerContainerEl.appendChild(this.containerEl);
 
             if (IS_MOBILE) {
+                document.querySelector('#messageBox').style.visibility =
+                'hidden';
                 this.createTouchController();
             }
 
@@ -552,8 +554,7 @@
                 }
 
                 // Check for collisions.
-                
-                var collision = this.horizon.obstacles[0] &&
+                var collision = hasObstacles &&
                     checkForCollision(this.horizon.obstacles[0], this.tRex, this.canvasCtx);
 
                 if (!collision) {
@@ -1505,7 +1506,7 @@
             yPos: 92,
             multipleSpeed: 7,
             minGap: 120,
-            minSpeed: 0,
+            minSpeed: 5,
             collisionBoxes: [
                 new CollisionBox(18, 1, 18, 16),
                 new CollisionBox(10, 16, 36, 16),
@@ -1531,7 +1532,7 @@
             yPos: 78,
             multipleSpeed: 7,
             minGap: 120,
-            minSpeed: 2,
+            minSpeed: 6,
             collisionBoxes: [
                 new CollisionBox(7, 3, 13, 55),
                 new CollisionBox(3, 30, 5, 20),
@@ -1545,7 +1546,7 @@
             yPos: 78,
             multipleSpeed: 7,
             minGap: 120,
-            minSpeed: 2,
+            minSpeed: 6,
             collisionBoxes: [
                 new CollisionBox(7, 3, 13, 55),
                 new CollisionBox(3, 30, 5, 20),
